@@ -8,5 +8,5 @@ before_install:
   - git clone https://github.com/potentialventures/cocotb.git
   - export COCOTB=$PWD/cocotb
 script:
-  - cd oc_jpegencode/tb
+  - cd tb
   - make
