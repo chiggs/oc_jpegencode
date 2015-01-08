@@ -1,6 +1,8 @@
 oc_jpegencode
 =============
 
+![Build Status](https://api.travis-ci.org/chiggs/oc_jpegencode.png?branch=master)
+
 Fork of OpenCores jpegencode with Cocotb testbench. Uses the Python image library to send files through the encoder.
 
 Original project page on Opencores: http://opencores.org/project,jpegencode
