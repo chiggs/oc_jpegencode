@@ -1,0 +1,12 @@
+language: python
+python:
+  - "2.7"
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y python-imaging
+  - sudo apt-get install -y iverilog
+  - git clone https://github.com/potentialventures/cocotb.git
+  - export COCOTB=$PWD/cocotb
+script:
+  - cd oc_jpegencode/tb
+  - make
