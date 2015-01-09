@@ -5,8 +5,10 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -y python-imaging
   - sudo apt-get install -y iverilog
+  - pip install coveralls
   - git clone https://github.com/potentialventures/cocotb.git
   - export COCOTB=$PWD/cocotb
 script:
-  - cd tb
-  - make
+  - cd tb && make
+after_success:
+  - coveralls
