@@ -9,6 +9,6 @@ before_install:
   - git clone https://github.com/potentialventures/cocotb.git
   - export COCOTB=$PWD/cocotb
 script:
-  - cd tb && make
+  - cd tb && make COVERAGE=1
 after_success:
   - coveralls
