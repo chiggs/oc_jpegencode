@@ -35,13 +35,12 @@ def compare(i1, i2):
 @cocotb.coroutine
 def process_image(dut, filename="", debug=False, threshold=0.22):
     """Run an image file through the jpeg encoder and compare the result"""
-
     cocotb.fork(Clock(dut.clk, 100).start())
 
     driver = ImageDriver(dut)
     monitor = JpegMonitor(dut)
 
-    if debug:
+    if debug:                                            # pragma: no cover
         driver.log.setLevel(logging.DEBUG)
         monitor.log.setLevel(logging.DEBUG)
 
@@ -49,17 +48,26 @@ def process_image(dut, filename="", debug=False, threshold=0.22):
     yield driver.send(stimulus)
     output = yield monitor.wait_for_recv()
 
-    if debug:
+    if debug:                                            # pragma: no cover
         output.save(filename + "_process.jpg")
 
     difference = compare(stimulus, output)
 
     dut.log.info("Compressed image differs to original by %f%%" % (difference))
 
-    if difference > threshold:
+    if difference > threshold:                           # pragma: no cover
         raise TestFailure("Resulting image file was too different (%f > %f)" %
                           (difference, threshold))
 
+try:
+    import coverage
+except ImportError as e:
+    import os, sys
+    print sys.path
+    if os.path.isdir("/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages"):
+        print os.listdir("/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages")
+    else:
+        print "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages doesn't exist"
 
 tf = TestFactory(process_image)
 tf.add_option("filename", [os.path.join('test_images', f)
