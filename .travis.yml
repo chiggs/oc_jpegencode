@@ -11,6 +11,6 @@ install:
   - pip install coverage
   - pip install coveralls
 script:
-  - cd tb && make COVERAGE=1
+  - cd tb && PYTHONPATH=/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages make COVERAGE=1
 after_success:
   - coveralls
