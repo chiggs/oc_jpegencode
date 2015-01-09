@@ -59,16 +59,6 @@ def process_image(dut, filename="", debug=False, threshold=0.22):
         raise TestFailure("Resulting image file was too different (%f > %f)" %
                           (difference, threshold))
 
-try:
-    import coverage
-except ImportError as e:
-    import os, sys
-    print sys.path
-    if os.path.isdir("/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages"):
-        print os.listdir("/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages")
-    else:
-        print "/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages doesn't exist"
-
 tf = TestFactory(process_image)
 tf.add_option("filename", [os.path.join('test_images', f)
                             for f in os.listdir('test_images')])

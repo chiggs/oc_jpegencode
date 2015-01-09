@@ -56,7 +56,7 @@ class ImageDriver(Driver):
 
             image (PIL.Image)   image to send into the dut
         """
-        if image.mode != "RGB":
+        if image.mode != "RGB":                # pragma: no cover
             raise TypeError("Require an format RGB image")
 
         width, height = image.size
