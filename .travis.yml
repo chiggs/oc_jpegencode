@@ -11,4 +11,4 @@ before_install:
 script:
   - cd tb && make
 after_success:
-  - coveralls
+  - cd tb && coveralls
