@@ -1,7 +1,7 @@
 oc_jpegencode
 =============
 
-[![Documentation Status](https://readthedocs.org/projects/opencores-jpegencoder/badge/?version=latest)](https://readthedocs.org/projects/opencores-jpegencoder/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/opencores-jpegencoder/badge/?version=latest)](http://opencores-jpegencoder.readthedocs.org/en/latest/)
 [![Build Status](https://api.travis-ci.org/chiggs/oc_jpegencode.png?branch=master)](https://travis-ci.org/chiggs/oc_jpegencode)
 [![Coverage Status](https://img.shields.io/coveralls/chiggs/oc_jpegencode.svg)](https://coveralls.io/r/chiggs/oc_jpegencode)
 
@@ -26,4 +26,4 @@ To run the testbench:
     cd oc_jpegencode/tb
     make
 
-[Documentation](https://readthedocs.org/projects/opencores-jpegencoder/badge/?version=latest) hosted on [ReadTheDocs](https://readthedocs.org/).
+[Documentation](http://opencores-jpegencoder.readthedocs.org/en/latest/) hosted on [ReadTheDocs](https://readthedocs.org/).
