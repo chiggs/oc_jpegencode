@@ -8,4 +8,8 @@ before_install:
   - mv quartus* quartus_14.0.tar.gz
   - tar -zxf quartus_14.0.tar.gz
 script:
-  - cd syn && PATH=$PWD/../altera/14.0/quartus/bin:$PATH make
+  - cd syn && PATH=$PWD/../altera/14.0/quartus/bin:$PATH make &
+  - pid=$!
+  - echo $pid
+  - while sleep 1m; echo Waiting on $pid; kill -0 $pid >/dev/null 2>&1; do; done
+
