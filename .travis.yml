@@ -3,8 +3,9 @@ language: python
 python:
   - "2.7"
 before_install:
+  - curl checkip.dyndns.org
   - wget https://www.dropbox.com/s/xvum1md2deppgre/quartus_14.0.tar.gz?dl=0
   - mv quartus* quartus_14.0.tar.gz
   - tar -zxf quartus_14.0.tar.gz
 script:
-  - cd syn && PATH=$PWD/altera/14.0/quartus/bin:$PATH make
+  - cd syn && PATH=$PWD/../altera/14.0/quartus/bin:$PATH make
