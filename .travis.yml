@@ -1,16 +1,10 @@
+sudo: false
 language: python
 python:
   - "2.7"
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y python-imaging
-  - sudo apt-get install -y iverilog
-  - git clone https://github.com/potentialventures/cocotb.git
-  - export COCOTB=$PWD/cocotb
-install:
-  - pip install coverage
-  - pip install coveralls
+  - wget https://www.dropbox.com/s/xvum1md2deppgre/quartus_14.0.tar.gz?dl=0
+  - mv quartus* quartus_14.0.tar.gz
+  - tar -zxf quartus_14.0.tar.gz
 script:
-  - cd tb && PYTHONPATH=/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages make COVERAGE=1
-after_success:
-  - coveralls
+  - cd syn && PATH=$PWD/altera/14.0/quartus/bin:$PATH make
