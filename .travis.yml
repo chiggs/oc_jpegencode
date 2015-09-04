@@ -9,7 +9,7 @@ addons:
     - python-imaging
     - iverilog
 install:
-  - pip install coverage
-  - pip install coveralls
+  - pip install --user coverage
+  - pip install --user coveralls
 script:
   - ./.travis.sh
