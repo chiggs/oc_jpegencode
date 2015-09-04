@@ -15,7 +15,7 @@ fi
 
 
 # Simulation build
-if [ "SIMULATION}" = "true" ]; then
+if [ "${SIMULATION}" = "true" ]; then
     git clone https://github.com/potentialventures/cocotb.git
     export COCOTB=$PWD/cocotb
     cd tb && make
