@@ -1,15 +1,17 @@
-sudo: false
-env:
-  matrix:
-    - SYNTHESIS=true
-    - SIMULATION=true
-addons:
-  apt:
-    packages:
-    - python-imaging
-    - iverilog
+language: python
+python:
+  - "2.7"
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y python-imaging
+  - sudo apt-get install -y iverilog
+  - git clone https://github.com/potentialventures/cocotb.git
+  - export COCOTB=$PWD/cocotb
 install:
-  - pip install --user coverage
-  - pip install --user coveralls
+  - pip install coverage
+  - pip install coveralls
 script:
-  - ./.travis.sh
+  - cd tb && PYTHONPATH=/home/travis/virtualenv/python2.7.9/lib/python2.7/site-packages make COVERAGE=1
+after_success:
+  - coveralls
+
